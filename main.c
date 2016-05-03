@@ -11,7 +11,7 @@ int my_printf(char *str, ...)
     p['i'] = &param_i;
     p['d'] = &param_d;
     p['o'] = &param_o;
-    // printf['u'] = &param_u; bugged
+    // p['u'] = &param_u; bugged
     // p['x'] = param_x;
     // p['X'] = param_X;
    va_start(ap, str);

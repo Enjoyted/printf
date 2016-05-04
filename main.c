@@ -34,7 +34,10 @@ int my_printf(char *str, ...)
 	      if (p[(int) str[i + 1]] != NULL)
           size += p[(int)str[(i += 1)]](va_arg(ap, void *));
         else
-          my_putstr("%ERROR\n");
+          {
+            my_putstr("\x1b[31mIl %ERROR");
+            i += 1;
+          }
       else
 	      {
 	        my_putchar(str[i]);
@@ -58,5 +61,6 @@ int main()
   my_printf("3 - %x\n", 42);         // unsigned hexadecimal
   my_printf("4 - %X\n", 42);         // unsigned hexadecimal 
   my_printf("5 - %d%%\n", 42);
+  my_printf("6 - %d%% %w %v cat\n", 42); // error handling
   return (0);
 }

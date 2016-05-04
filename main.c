@@ -35,7 +35,7 @@ int my_printf(char *str, ...)
           size += p[(int)str[(i += 1)]](va_arg(ap, void *));
         else
           {
-            my_putstr("\x1b[31mIl %ERROR");
+            my_putstr("\x1b[31m %ERROR\x1b[0m");
             i += 1;
           }
       else

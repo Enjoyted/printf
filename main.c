@@ -12,7 +12,10 @@ int my_printf(char *str, ...)
   int i;
   int (*p[123]) (void *y);
   int size;
-  
+
+  i = 0;
+  while (i < 123)
+    p[(i += 1)] = NULL;
   p['s'] = &param_s;
   p['c'] = &param_c;
   p['i'] = &param_i;
@@ -22,21 +25,24 @@ int my_printf(char *str, ...)
   p['X'] = &param_X;
   p['u'] = &param_u;
   p['%'] = &param_per;
-  
+
   va_start(ap, str);
   size = (i = 0);
   while (str[i] != '\0')
     {
       if (str[i + 1] != '\0' && str[i] == '%')
-	size += p[(int)str[(i += 1)]](va_arg(ap, void *));
+	      if (p[(int) str[i + 1]] != NULL)
+          size += p[(int)str[(i += 1)]](va_arg(ap, void *));
+        else
+          my_putstr("%ERROR\n");
       else
-	{
-	  my_putchar(str[i]);
-	  size += 1;    
-	}
+	      {
+	        my_putchar(str[i]);
+	        size += 1;
+	      }
       i++;
     }
-  
+
   va_end(ap);
   return (size);
 }

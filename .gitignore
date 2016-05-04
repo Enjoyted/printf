@@ -2,3 +2,4 @@
 lib_src/*
 printf
 *.o
+.DS_STORE

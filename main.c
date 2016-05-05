@@ -25,7 +25,6 @@ int my_printf(char *str, ...)
   p['X'] = &param_X;
   p['u'] = &param_u;
   p['%'] = &param_per;
-
   va_start(ap, str);
   size = (i = 0);
   while (str[i] != '\0')
@@ -45,8 +44,8 @@ int my_printf(char *str, ...)
 	      }
       i++;
     }
-
   va_end(ap);
+  
   return (size);
 }
 

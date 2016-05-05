@@ -1,5 +1,6 @@
 SRC =	main.c \
-        functions.c
+        functions.c \
+        functions2.c
 
 NAME =	printf
 OBJO =	$(SRC:%.c=%.o)

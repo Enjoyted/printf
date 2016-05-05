@@ -23,6 +23,7 @@ SRC = my_add_list_to_list.c \
 OBJ =   $(SRC:%.c=%.o)
 RM =    rm -f
 CFLAGS = -W -Wall -Werror
+Build Active Architectures Only = No
 
 $(NAME):        $(OBJ)
 		ar r $(NAME).a $(OBJ)

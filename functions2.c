@@ -38,6 +38,7 @@ int param_X(void *no)
     }
   while (i > 0)
       my_putchar(out[(i += -1)]);
+  free(out);
 
   return (i);
 }
@@ -66,6 +67,7 @@ int param_x(void *no)
     }
   while (i >= 0)
       my_putchar(out[(i += -1)]);
+  free(out);
   
   return (i);
 }
